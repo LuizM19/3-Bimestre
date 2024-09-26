@@ -1,0 +1,44 @@
+<body>
+    <h1> Ler 10 numeros e verificar qual é o menor utilizado, usando array</h1>
+    <form>
+        <label> Digite um numero: </label><br>
+        <input type="number" id="recebedora"><br>
+        <button type="button" id="armazenar"> Armazenar </button>
+        <button type="button" id="Encontrarmenor"> Encontrar menor numero </button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        let numeros = [];
+
+        document.getElementById('armazenar').onclick = function () {
+            let recebedora = parseFloat(document.getElementById('recebedora').value)
+            if (!isNaN(recebedora)) {
+                numeros.push(recebedora);
+                document.getElementById('recebedora').value = ''
+            }
+        }
+
+        document.getElementById('Encontrarmenor').onclick = function () {
+            if (numeros.length > 0) {
+                let menornumero = numeros[0];
+                for (let i = 1; i < numeros.length; i++) {
+                    if (numeros[i] < menornumero) {
+                        menornumero = numeros[i];
+                    }
+                }
+                document.getElementById('resultado').innerText = "Os numeros digitados foram:" + numeros.join(", ") + " O menor numero digitado foi:" + menornumero;
+            }else{
+            document.getElementById('resultado').innerText="Nenhum numero armazenado"
+        }
+    }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
